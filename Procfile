@@ -1,1 +1,1 @@
-web: gunicorn boitoi.wsgi --log-file -
+web: gunicorn bookshop.wsgi
