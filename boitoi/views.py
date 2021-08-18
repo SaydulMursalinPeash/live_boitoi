@@ -32,7 +32,7 @@ def home(request):
     return render(request, 'boitoi/home.html',context)
 
 
-@authenticated_user
+
 def LogIn(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -47,7 +47,6 @@ def LogIn(request):
     return render(request, 'boitoi/log_in.html')
 
 
-@authenticated_user
 def Register(request):
     form = RegisterForm()
     if request.method == 'POST':
