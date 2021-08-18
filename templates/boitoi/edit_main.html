@@ -1,0 +1,247 @@
+{% load static %}
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/c0c844b1b2.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@600&display=swap');
+
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+
+            }
+            body{
+                background-color: rgb(5, 22, 56);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .book_add_container{
+                height: fit-content;
+                display: flex;
+                height: fit-content;
+                width: 500px;
+                background-color: rgba(255, 255, 255, 0.136);
+                backdrop-filter: blur(5px);
+                align-items: center;
+                justify-content: center;
+                
+
+            }
+            .boitoi_logo{
+                position: absolute;
+                top: 0;
+                display: flex;
+
+                justify-content: center;
+                height: 100px;
+                width: 200px;
+                padding-top: 15px;
+                background-color: rgba(240, 248, 255, 0.83);
+                clip-path: circle(50.0% at 50% 0);
+                box-sizing: border-box;
+                
+            }
+            .boitoi_logo p{
+                font-family: 'Righteous', cursive;
+                font-size: 30px;
+                color: rgba(0, 0, 0, 0.639);
+
+            }
+            .book_add{
+                position: relative;
+                height: fit-content;
+                width: fit-content;
+                margin-top: 100px;
+                margin-bottom: 20px;
+                
+
+            }
+            .book_add_form{
+                display: grid;
+                grid-template-columns: 200px auto;
+                box-sizing: border-box;
+
+            }
+            .book_add_form .without_cover input,select{
+                position: relative;
+                margin: 4px;
+                width: 240px;
+                border: none;
+                outline: none;
+                box-sizing: border-box;
+                height: 35px;
+                padding: 0px 15px;
+                border-radius: 10px;
+                background-color: rgba(250, 235, 215, 0.517);
+            }
+            .without_cover{
+                position: relative;
+                width: 100%;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .cover{
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: fit-content;
+                width: 100%;
+                flex-direction: column;
+                box-sizing: border-box;
+                overflow: hidden;
+
+
+            }
+            .book_cover{
+                margin-top: 2px;
+                height: 200px;
+                width: 80%;
+                box-sizing: border-box;
+                position: relative;
+                border: 2px solid black;
+                outline: none;
+            }
+            .cover #id_cover{
+                position: relative;
+                width: 80%;
+                margin-top: 10px;
+                background-color: rgba(0, 0, 0, 0.524);
+
+            }
+            .submit_button{
+                width: 100px;
+                margin-top: 10px;
+                height: 35px;
+                border: none;
+                outline: none;
+                border-radius: 17.5px;
+
+                display: grid;
+                grid-template-columns: 30px auto;
+                grid-template-rows: 35px ;
+                overflow: hidden;
+                background-color: rgb(8, 25, 59);
+            }
+            .save_icon{
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 100%;
+            }
+            .save_icon i{
+                font-size: 16px;
+                margin-left: 5px;
+                color: rgb(255, 255, 255);
+            }
+            .save_text{
+                position: relative;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                justify-content: center;
+                border-radius: 17.5px;
+                background-color: rgba(255, 255, 255, 0.741);
+            }
+            .save_text p{
+                font-family: 'Ubuntu', sans-serif;
+                color: rgb(63, 67, 144);
+                font-size: 15px;
+            }
+            .submit_button:hover{
+                grid-template-columns: auto 0px;
+                background-color: #04ab41;
+                cursor: pointer;
+                
+                
+            }.submit_button:hover i{
+                margin: 0;
+                color: rgb(255, 255, 255);
+                font-size: 18px;
+            }
+            .submit_button:hover .save_icon{
+                transition: all 0.5s;
+                width: 100%;
+            }
+            .book_add_form .without_cover input:focus,select:focus{
+                background-color: aliceblue;
+            }
+            input::placeholder{
+                color: #0c0c0c;
+            }
+            #id_description{
+                position: relative;
+                margin: 4px;
+                width: 240px;
+                border: none;
+                outline: none;
+                box-sizing: border-box;
+                height: 35px;
+                padding: 0px 15px;
+                
+                background-color: rgba(250, 235, 215, 0.517);
+            }
+            .book_input{
+                border: 2px solid rgba(243, 243, 243, 0.734);;
+                border-radius: 15px;
+                margin-bottom: 4px;
+            }
+            .book_input p{
+                font-family: 'Baloo Chettan 2', cursive;
+                margin-left: 10px;
+                padding: 0;
+                font-size: 14px;
+                margin-bottom: 0;
+                color: rgb(92, 159, 201);
+            }
+            input[type=file]{
+                position: relative;
+                width: 80%;
+                margin-top: 5px;
+                background-color: #05050586;
+            }
+            .buttons{
+                position: relative;
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+            }
+            .buttons a{
+                text-decoration: none;
+                display: flex;
+                flex-direction: row-reverse;
+                
+            }
+            .buttons a .save_icon i{
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+            .buttons a:hover .save_text{
+                display: none;
+            }
+            .buttons a:hover{
+                background-color: rgb(255, 64, 64);
+            }
+            .buttons a .save_text{
+                background-color: rgb(255, 227, 67);
+            }
+        </style>
+
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

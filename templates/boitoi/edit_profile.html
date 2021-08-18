@@ -1,0 +1,75 @@
+{% extends 'boitoi/edit_main.html' %}
+{% load static %}
+{% block content %}
+            <div class="book_add_container">
+                <div class="boitoi_logo"><p>boitoi</p></div>
+                <div class="book_add">
+                    <form method="POST" class="book_add_form" enctype="multipart/form-data" action="">
+                        {% csrf_token %}
+                        <div class="cover">
+                            <img class="book_cover" >
+                            {{form.photo}}
+                        </div>
+                        <div class="without_cover">
+                            
+                            <div class="book_input">
+                                <p>Name:</p>
+                                {{form.name}}
+                            </div>
+                            <div class="book_input">
+                                <p>Email:</p>
+                                {{form.email}}
+                            </div>
+                            <div class="book_input">
+                                <p>Phone:</p>
+                                {{form.phone}}
+                            </div>
+                            <div class="book_input">
+                                <p>Address:</p>
+                                {{form.address}}
+                            </div>
+                            
+                            <div class="buttons">
+                                <a class="submit_button" href="{% url 'profile' %}" id="cancel_button">
+                                    <div class="save_icon">
+                                        <i class="fas fa-long-arrow-alt-left"></i>
+                                    </div>
+                                    <div class="save_text"><p>back</p></div>
+                                </a>
+                                <button type="submit" class="submit_button">
+                                    <div class="save_icon">
+                                        <i class="fas fa-save"></i>
+                                    </div>
+                                    <div class="save_text"><p>Save</p></div>
+                                </button>
+                                
+                                
+                        </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+
+    <script>
+        {
+            // upload image
+            document.querySelector(".cover #photo-clear_id").style.display='none';
+            document.querySelector(".cover label").style.display='none';
+            document.querySelector(".cover br").style.display='none';
+            let current_cover=document.querySelector(".cover a");
+            console.log(current_cover.href);
+            current_cover.style.display="none";
+            let image_upload=document.getElementById('id_photo');
+            let image_show=document.querySelector('.book_cover');
+            image_show.src=current_cover.href;
+            image_upload.addEventListener('change',function(){
+                image_show.src=URL.createObjectURL(image_upload.files[0])
+            });
+            let cover=document.querySelector('.cover');
+            cover.childNodes[2].remove('Currently:');
+            cover.childNodes[8].remove('Change:');
+ 
+        }
+    </script>
+{% endblock %}
