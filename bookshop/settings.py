@@ -79,24 +79,18 @@ ASGI_APPLICATION = 'bookshop.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'boitoi_data',
-        'USER': 'postgres',
-        'PASSWORD': '1808019428Pea',
-        'HOST': 'localhost',
+        'NAME': 'd3qm24tb4ae5nb',
+        'USER': 'sqxqtjcxfdjkvt',
+        'PASSWORD': 'a1bdfaea3893a7a002c1510a3c6049ac23cbaf9b89b64de4183471531f30fbd9',
+        'HOST': 'ec2-44-195-247-84.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
-'''
+
 
 CHANNEL_LAYERS = {
     "default": {
