@@ -105,9 +105,9 @@ def CancelCart(request,pk):
 
 def AboutBook(request,pk):
     book=Book.objects.get(id=pk)
-    user=request.user.customer
-    cart=request.user.customer.cart_set.all().reverse()
-    cart_count=request.user.customer.cart_set.all().count()
+    if request.user.is_authenticated:
+        cart_count=request.user.customer.cart_set.all().count()
+        cart=request.user.customer.cart_set.order_by("date_created").reverse()
     comments=book.review_set.all()
     customer_all=Customer()
     context={
